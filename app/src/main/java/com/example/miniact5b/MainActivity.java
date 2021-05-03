@@ -22,7 +22,6 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import android.os.AsyncTask;
 
-import com.example.miniact5b.R;
 
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT).show();
     }
 
-    class AsynTaskRunner extends AsyncTask<String, String, String> {
+    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -110,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class AsynTaskRunner2 extends AsyncTask<String, String, Bitmap> {
+    private class AsyncTaskRunner2 extends AsyncTask<String, String, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(String... strings) {
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickText(View v) {
 
-        AsynTaskRunner runner = new AsynTaskRunner();
+        AsyncTaskRunner runner = new AsyncTaskRunner();
         runner.execute();
     }
 
@@ -172,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickImage(View v) {
-        AsynTaskRunner2 runner = new AsynTaskRunner2();
+        AsyncTaskRunner2 runner = new AsyncTaskRunner2();
         runner.execute();
     }
 
