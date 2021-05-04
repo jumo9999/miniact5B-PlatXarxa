@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickText(View v) {
+    public void showText(View v) {
 
         AsyncTaskRunnerText runner = new AsyncTaskRunnerText();
         runner.execute();
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
         return  buffer.toString();
     }
 
-    public void onClickImage(View v) {
+    public void showImg(View v) {
         AsyncTaskRunnerImg runner = new AsyncTaskRunnerImg();
         runner.execute();
     }
