@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT).show();
     }
 
-    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
+    private class AsyncTaskRunnerText extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -109,13 +109,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class AsyncTaskRunner2 extends AsyncTask<String, String, Bitmap> {
+    private class AsyncTaskRunnerImg extends AsyncTask<String, String, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(String... strings) {
 
             InputStream in;
-            Bitmap bmp;
+            Bitmap bitmap;
             int responseCode;
             try {
                 URL url = new URL("https://s.inyourpocket.com/gallery/113383.jpg");
@@ -126,9 +126,9 @@ public class MainActivity extends AppCompatActivity {
                 if(responseCode == HttpURLConnection.HTTP_OK)
                 {
                     in = con.getInputStream();
-                    bmp = BitmapFactory.decodeStream(in);
+                    bitmap = BitmapFactory.decodeStream(in);
                     in.close();
-                    return bmp;
+                    return bitmap;
                 }
             }
             catch(Exception ex){
@@ -144,12 +144,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-
     public void onClickText(View v) {
 
-        AsyncTaskRunner runner = new AsyncTaskRunner();
+        AsyncTaskRunnerText runner = new AsyncTaskRunnerText();
         runner.execute();
     }
 
@@ -171,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickImage(View v) {
-        AsyncTaskRunner2 runner = new AsyncTaskRunner2();
+        AsyncTaskRunnerImg runner = new AsyncTaskRunnerImg();
         runner.execute();
     }
 
